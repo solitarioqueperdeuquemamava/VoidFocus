@@ -16,7 +16,7 @@ local configFileName = "VoidFocusConfig.json"
 local settings = {
     flySpeed = 160,
     verticalFlySpeed = 220,
-    orbitSpeed = 30
+    orbitSpeed = 80
 }
 
 local function saveSettings()
@@ -41,7 +41,7 @@ loadSettings()
 
 local flySpeed = settings.flySpeed
 local verticalFlySpeed = settings.verticalFlySpeed
-local orbitSpeed = 30
+local orbitSpeed = settings.orbitSpeed
 
 local function getChar()
     local c = player.Character
@@ -86,8 +86,8 @@ local function showNotification(text, isSuccess)
 end
 
 local main = Instance.new("Frame")
-main.Size = UDim2.new(0, 480, 0, 240)
-main.Position = UDim2.new(0.5, -240, 0.4, -120)
+main.Size = UDim2.new(0, 480, 0, 280)
+main.Position = UDim2.new(0.5, -240, 0.4, -140)
 main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 main.BackgroundTransparency = 0.05
 main.ClipsDescendants = true
@@ -198,7 +198,7 @@ mainScroll.BackgroundTransparency = 1
 mainScroll.BorderSizePixel = 0
 mainScroll.ScrollBarThickness = 5
 mainScroll.ScrollBarImageColor3 = Color3.fromRGB(255, 30, 30)
-mainScroll.CanvasSize = UDim2.new(0, 0, 0, 560)
+mainScroll.CanvasSize = UDim2.new(0, 0, 0, 620)
 mainScroll.ZIndex = 2
 mainScroll.Parent = main
 
@@ -209,16 +209,23 @@ btnFocus.Text = "FOCUS: OFF"
 btnFocus.Parent = mainScroll
 styleButton(btnFocus)
 
+local btnDummy = Instance.new("TextButton")
+btnDummy.Size = UDim2.new(0, 210, 0, 32)
+btnDummy.Position = UDim2.new(0, 240, 0, 5)
+btnDummy.Text = "FOCAR DUMMY: OFF"
+btnDummy.Parent = mainScroll
+styleButton(btnDummy)
+
 local btnFly = Instance.new("TextButton")
 btnFly.Size = UDim2.new(0, 210, 0, 32)
-btnFly.Position = UDim2.new(0, 240, 0, 5)
+btnFly.Position = UDim2.new(0, 10, 0, 47)
 btnFly.Text = "FLY (BYPASS): OFF"
 btnFly.Parent = mainScroll
 styleButton(btnFly)
 
 local flyDesc = Instance.new("TextLabel")
 flyDesc.Size = UDim2.new(0, 210, 0, 20)
-flyDesc.Position = UDim2.new(0, 240, 0, 39)
+flyDesc.Position = UDim2.new(0, 10, 0, 81)
 flyDesc.BackgroundTransparency = 1
 flyDesc.Text = "Bypass ativo + Void unlock."
 flyDesc.TextColor3 = Color3.fromRGB(255, 200, 200)
@@ -232,7 +239,7 @@ flyDesc.Parent = mainScroll
 
 local div1 = Instance.new("Frame")
 div1.Size = UDim2.new(1, -20, 0, 2)
-div1.Position = UDim2.new(0, 10, 0, 70)
+div1.Position = UDim2.new(0, 10, 0, 110)
 div1.BackgroundColor3 = Color3.fromRGB(255, 30, 30)
 div1.BorderSizePixel = 0
 div1.ZIndex = 2
@@ -240,7 +247,7 @@ div1.Parent = mainScroll
 
 local subFocusBypass = Instance.new("TextLabel")
 subFocusBypass.Size = UDim2.new(1, 0, 0, 20)
-subFocusBypass.Position = UDim2.new(0, 0, 0, 80)
+subFocusBypass.Position = UDim2.new(0, 0, 0, 120)
 subFocusBypass.BackgroundTransparency = 1
 subFocusBypass.Text = "UNLOCKED BY VOID TP (LISTA DE PLAYERS)"
 subFocusBypass.TextColor3 = Color3.fromRGB(255, 130, 130)
@@ -252,8 +259,8 @@ subFocusBypass.ZIndex = 2
 subFocusBypass.Parent = mainScroll
 
 local scrollFrame = Instance.new("ScrollingFrame")
-scrollFrame.Size = UDim2.new(1, -20, 0, 140)
-scrollFrame.Position = UDim2.new(0, 10, 0, 105)
+scrollFrame.Size = UDim2.new(1, -20, 0, 130)
+scrollFrame.Position = UDim2.new(0, 10, 0, 145)
 scrollFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 scrollFrame.BackgroundTransparency = 0.3
 scrollFrame.BorderSizePixel = 0
@@ -269,7 +276,7 @@ listLayout.Padding = UDim.new(0, 5)
 
 local div2 = Instance.new("Frame")
 div2.Size = UDim2.new(1, -20, 0, 2)
-div2.Position = UDim2.new(0, 10, 0, 260)
+div2.Position = UDim2.new(0, 10, 0, 285)
 div2.BackgroundColor3 = Color3.fromRGB(255, 30, 30)
 div2.BorderSizePixel = 0
 div2.ZIndex = 2
@@ -277,7 +284,7 @@ div2.Parent = mainScroll
 
 local subPunchTitle = Instance.new("TextLabel")
 subPunchTitle.Size = UDim2.new(1, 0, 0, 20)
-subPunchTitle.Position = UDim2.new(0, 0, 0, 270)
+subPunchTitle.Position = UDim2.new(0, 0, 0, 295)
 subPunchTitle.BackgroundTransparency = 1
 subPunchTitle.Text = "AUTO PUNCH OPTIONS"
 subPunchTitle.TextColor3 = Color3.fromRGB(255, 130, 130)
@@ -290,28 +297,28 @@ subPunchTitle.Parent = mainScroll
 
 local punchBtn1 = Instance.new("TextButton")
 punchBtn1.Size = UDim2.new(0, 210, 0, 32)
-punchBtn1.Position = UDim2.new(0, 10, 0, 298)
+punchBtn1.Position = UDim2.new(0, 10, 0, 323)
 punchBtn1.Text = "Adicionar Botão"
 punchBtn1.Parent = mainScroll
 styleButton(punchBtn1)
 
 local punchBtn2 = Instance.new("TextButton")
 punchBtn2.Size = UDim2.new(0, 210, 0, 32)
-punchBtn2.Position = UDim2.new(0, 240, 0, 298)
+punchBtn2.Position = UDim2.new(0, 240, 0, 323)
 punchBtn2.Text = "Remover Botão"
 punchBtn2.Parent = mainScroll
 styleButton(punchBtn2)
 
 local punchBtn3 = Instance.new("TextButton")
 punchBtn3.Size = UDim2.new(0, 440, 0, 35)
-punchBtn3.Position = UDim2.new(0, 10, 0, 340)
+punchBtn3.Position = UDim2.new(0, 10, 0, 365)
 punchBtn3.Text = "Auto Click: OFF"
 punchBtn3.Parent = mainScroll
 styleButton(punchBtn3)
 
 local warnText = Instance.new("TextLabel")
 warnText.Size = UDim2.new(1, -20, 0, 25)
-warnText.Position = UDim2.new(0, 10, 0, 380)
+warnText.Position = UDim2.new(0, 10, 0, 405)
 warnText.BackgroundTransparency = 1
 warnText.Text = "Proteção de 10s ativada ao ligar/desligar o Auto Click."
 warnText.TextColor3 = Color3.fromRGB(255, 200, 200)
@@ -366,13 +373,13 @@ end)
 
 local focusUnlockedByVoid = false
 local focusActive = false
+local dummyFocusActive = false
 local currentTarget = nil
 local orbitAngle = 0
 local flyActive = false
 local flyMove = Vector3.zero
 local flyUpValue = 0
 local flyBodyVelocity, flyBodyGyro
-local focusBodyPosition, focusBodyGyro
 
 local playerButtons = {}
 
@@ -402,6 +409,11 @@ local function updatePlayersList()
                     return
                 end
                 
+                dummyFocusActive = false
+                btnDummy.Text = "FOCAR DUMMY: OFF"
+                btnDummy.TextColor3 = Color3.fromRGB(255, 180, 180)
+                TweenService:Create(btnDummy, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}):Play()
+                
                 for _, btn in pairs(playerButtons) do
                     btn:SetAttribute("Selecionado", false)
                     TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(0, 0, 0), TextColor3 = Color3.fromRGB(255, 180, 180)}):Play()
@@ -410,8 +422,6 @@ local function updatePlayersList()
                 if currentTarget == p.Character then
                     focusActive = false
                     currentTarget = nil
-                    if focusBodyPosition then focusBodyPosition:Destroy() focusBodyPosition = nil end
-                    if focusBodyGyro then focusBodyGyro:Destroy() focusBodyGyro = nil end
                     showNotification("Foco desativado.", false)
                 else
                     focusActive = true
@@ -420,11 +430,10 @@ local function updatePlayersList()
                     TweenService:Create(pBtn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(160, 0, 0), TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
                     showNotification("Focando em: " .. (p.DisplayName or p.Name), true)
                     
-                    -- Força o teleporte imediato
                     local _, _, hrp = getChar()
                     local tHrp = p.Character and p.Character:FindFirstChild("HumanoidRootPart")
                     if hrp and tHrp then
-                        hrp.CFrame = CFrame.new(tHrp.Position + Vector3.new(0, 4, 0))
+                        hrp.CFrame = CFrame.new(tHrp.Position + Vector3.new(0, 3, 0))
                     end
                 end
             end)
@@ -581,6 +590,11 @@ btnFocus.MouseButton1Click:Connect(function()
         return
     end
     
+    dummyFocusActive = false
+    btnDummy.Text = "FOCAR DUMMY: OFF"
+    btnDummy.TextColor3 = Color3.fromRGB(255, 180, 180)
+    TweenService:Create(btnDummy, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}):Play()
+    
     focusActive = not focusActive
     if focusActive then
         local _, _, currentHrp = getChar()
@@ -620,6 +634,55 @@ btnFocus.MouseButton1Click:Connect(function()
     
     task.wait(0.5)
     debounceFocus = false
+end)
+
+local debounceDummy = false
+btnDummy.MouseButton1Click:Connect(function()
+    if debounceDummy then return end
+    debounceDummy = true
+    
+    focusActive = false
+    btnFocus.Text = "FOCUS: OFF"
+    btnFocus.TextColor3 = Color3.fromRGB(255, 180, 180)
+    TweenService:Create(btnFocus, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}):Play()
+    
+    for _, btn in pairs(playerButtons) do
+        btn:SetAttribute("Selecionado", false)
+        TweenService:Create(btn, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(0, 0, 0), TextColor3 = Color3.fromRGB(255, 180, 180)}):Play()
+    end
+    
+    dummyFocusActive = not dummyFocusActive
+    if dummyFocusActive then
+        local foundDummy = nil
+        for _, obj in pairs(workspace:GetDescendants()) do
+            if obj:IsA("Model") and (obj.Name:lower():find("dummy") or obj.Name:lower():find("treino") or obj.Name:lower():find("target")) then
+                if obj:FindFirstChild("HumanoidRootPart") and obj:FindFirstChild("Humanoid") and obj.Humanoid.Health > 0 then
+                    foundDummy = obj
+                    break
+                end
+            end
+        end
+        
+        if foundDummy then
+            currentTarget = foundDummy
+            btnDummy.Text = "FOCAR DUMMY: ON"
+            btnDummy.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TweenService:Create(btnDummy, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(160, 0, 0)}):Play()
+            showNotification("Focando no Dummy para farmar ult!", true)
+        else
+            dummyFocusActive = false
+            showNotification("Nenhum Dummy encontrado no mapa!", false)
+        end
+    else
+        currentTarget = nil
+        btnDummy.Text = "FOCAR DUMMY: OFF"
+        btnDummy.TextColor3 = Color3.fromRGB(255, 180, 180)
+        TweenService:Create(btnDummy, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}):Play()
+        showNotification("Foco no Dummy desativado.", false)
+    end
+    
+    task.wait(0.5)
+    debounceDummy = false
 end)
 
 local debounceFly = false
@@ -725,32 +788,31 @@ RunService.RenderStepped:Connect(function(dt)
         tpToRandomPlayer()
     end
 
-    if focusActive and currentTarget and focusUnlockedByVoid then
+    if (focusActive or dummyFocusActive) and currentTarget and (focusUnlockedByVoid or dummyFocusActive) then
         local targetHrp = currentTarget:FindFirstChild("HumanoidRootPart")
         local targetHum = currentTarget:FindFirstChild("Humanoid")
         if targetHrp and targetHum and targetHum.Health > 0 then
-            orbitAngle += dt * orbitSpeed
+            orbitAngle = (orbitAngle + dt * orbitSpeed) % (math.pi * 2)
             
-            local distToTarget = (currentHrp.Position - targetHrp.Position).Magnitude
-            
-            if distToTarget > 15 then
-                -- Re-teleporta se ficou muito longe (anticheat puxou de volta ou ainda tá no spawn)
-                currentHrp.CFrame = CFrame.new(targetHrp.Position + Vector3.new(0, 4, 0))
-                currentHrp.AssemblyLinearVelocity = Vector3.zero
-                currentHrp.AssemblyAngularVelocity = Vector3.zero
-            else
-                -- Orbita normal
-                local pos = targetHrp.Position + Vector3.new(math.cos(orbitAngle) * 7, 3, math.sin(orbitAngle) * 7)
-                currentHrp.CFrame = CFrame.new(pos, targetHrp.Position)
-                currentHrp.AssemblyLinearVelocity = Vector3.zero
-                currentHrp.AssemblyAngularVelocity = Vector3.zero
-            end
+            -- Órbita suave estilo hub premium (mantém a câmera livre e não trava a visão)
+            local offset = Vector3.new(math.cos(orbitAngle) * 5, 2, math.sin(orbitAngle) * 5)
+            currentHrp.CFrame = CFrame.new(targetHrp.Position + offset, targetHrp.Position)
+            currentHrp.AssemblyLinearVelocity = Vector3.zero
+            currentHrp.AssemblyAngularVelocity = Vector3.zero
         else
-            focusActive = false
-            currentTarget = nil
-            btnFocus.Text = "FOCUS: OFF"
-            btnFocus.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-            btnFocus.TextColor3 = Color3.fromRGB(255, 180, 180)
+            if focusActive then
+                focusActive = false
+                currentTarget = nil
+                btnFocus.Text = "FOCUS: OFF"
+                btnFocus.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                btnFocus.TextColor3 = Color3.fromRGB(255, 180, 180)
+            elseif dummyFocusActive then
+                dummyFocusActive = false
+                currentTarget = nil
+                btnDummy.Text = "FOCAR DUMMY: OFF"
+                btnDummy.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                btnDummy.TextColor3 = Color3.fromRGB(255, 180, 180)
+            end
             showNotification("Alvo eliminado ou perdido.", false)
         end
     end
